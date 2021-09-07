@@ -50,10 +50,9 @@ function Home() {
 
 				<div className="home__row">
 					<Product
-						title="Roll over image to zoom in
-Sony HT-S700RF Real 5.1ch Dolby Audio Soundbar for TV with Tall boy Rear Speakers & Subwoofer, 5.1ch Home Theatre System (1000W, Bluetooth & USB Connectivity,HDMI & Optical Connectitvity)"
-						price="49,990.00"
-						image="https://m.media-amazon.com/images/I/51eVDK+PbCL._SL1500_.jpg"
+						title="Samsung LC49HG90DMUXEN 48.9-inch Ultra Wide Curved Monitor (Black)"
+						price="1,60,000.00"
+						image="https://m.media-amazon.com/images/I/71MlcO29QOL._SL1500_.jpg"
 						rating={4}
 					/>
 				</div>
