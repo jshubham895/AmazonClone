@@ -4,6 +4,7 @@ import formatter from "./formatter";
 import { useStateValue } from "./StateProvider";
 
 function CheckoutProduct({ id, image, title, price, rating }) {
+	// eslint-disable-next-line
 	const [{ basket }, dispatch] = useStateValue();
 
 	const removeFromBasket = () => {

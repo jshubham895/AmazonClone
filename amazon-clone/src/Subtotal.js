@@ -6,6 +6,7 @@ import { getBasketTotal } from "./reducer";
 import formatter from "./formatter";
 
 function Subtotal() {
+	// eslint-disable-next-line
 	const [{ basket }, dispatch] = useStateValue();
 
 	return (

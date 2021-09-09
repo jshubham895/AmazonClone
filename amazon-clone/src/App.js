@@ -4,8 +4,34 @@ import Home from "./Home";
 import Checkout from "./Checkout";
 import Login from "./Login";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useEffect } from "react";
+import { auth } from "./firebase";
+import { useStateValue } from "./StateProvider";
 
 function App() {
+	// eslint-disable-next-line
+	const [{}, dispatch] = useStateValue();
+
+	useEffect(() => {
+		auth.onAuthStateChanged((authUser) => {
+			console.log("USER IS >>>", authUser);
+			if (authUser) {
+				// the user just logged in / the user was logged
+				dispatch({
+					type: "SET_USER",
+					user: authUser
+				});
+			} else {
+				//the user is logged out
+				dispatch({
+					type: "SET_USER",
+					user: null
+				});
+			}
+		});
+		// eslint-disable-next-line
+	}, []);
+
 	return (
 		<Router>
 			<div className="app">
