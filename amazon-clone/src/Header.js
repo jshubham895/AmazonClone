@@ -25,7 +25,9 @@ function Header() {
 			<div className="header__nav">
 				<div className="header__option">
 					<span className="header__OptionLineOne">Hello Guest</span>
-					<span className="header__OptionLineTwo">Sign In</span>
+					<Link to="/login">
+						<span className="header__OptionLineTwo">Sign In</span>
+					</Link>
 				</div>
 				<div className="header__option">
 					<span className="header__OptionLineOne">Returns</span>

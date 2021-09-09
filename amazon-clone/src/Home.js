@@ -16,14 +16,14 @@ function Home() {
 					<Product
 						id="432413"
 						title="2021 Apple iPad Pro with Apple M1 chip (11-inch/27.96 cm, Wi-Fi, 2TB) - Silver (3rd Generation)"
-						price="1,70,900.00"
+						price={170900.0}
 						image="https://m.media-amazon.com/images/I/81MF389-9gS._SL1500_.jpg"
 						rating={4}
 					/>
 					<Product
 						id="432613"
 						title="New Apple iPhone 12 Pro Max (128GB) - Silver"
-						price="1,15,900.00"
+						price={115900.0}
 						image="https://m.media-amazon.com/images/I/71umuN8XVeL._SL1500_.jpg"
 						rating={5}
 					/>
@@ -33,21 +33,21 @@ function Home() {
 					<Product
 						id="432313"
 						title="New Apple Watch Series 6 (GPS + Cellular, 44mm) - Product(RED) - Aluminium Case with Product(RED) - Sport Band"
-						price="47,900.00"
+						price={47900.0}
 						image="https://m.media-amazon.com/images/I/812m5ITIUjL._SL1500_.jpg"
 						rating={4}
 					/>
 					<Product
 						id="462413"
 						title="Sony Bravia 189 cm (75 inches) 4K Ultra HD Smart LED Google TV KD-75X80J (Black) (2021 Model) | with Alexa Compatibility"
-						price="2,08,989.00 "
+						price={208989.0}
 						image="https://m.media-amazon.com/images/I/81P7iSxFzzS._SL1500_.jpg"
 						rating={5}
 					/>
 					<Product
 						id="122413"
 						title="PS5 Marvel's Spiderman Miles morales Ultimate Edition"
-						price="4,079.00"
+						price={4079.0}
 						image="https://m.media-amazon.com/images/I/81tH0uekxiL._SL1500_.jpg"
 						rating={5}
 					/>
@@ -57,7 +57,7 @@ function Home() {
 					<Product
 						id="432983"
 						title="Samsung LC49HG90DMUXEN 48.9-inch Ultra Wide Curved Monitor (Black)"
-						price="1,60,000.00"
+						price={160000.0}
 						image="https://m.media-amazon.com/images/I/71MlcO29QOL._SL1500_.jpg"
 						rating={4}
 					/>

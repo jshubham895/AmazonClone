@@ -1,4 +1,5 @@
 import React from "react";
+import formatter from "./formatter";
 import "./Product.css";
 import { useStateValue } from "./StateProvider";
 
@@ -27,7 +28,7 @@ function Product({ id, title, price, rating, image }) {
 				<p>{title}</p>
 				<p className="product__price">
 					<small> &#8377; </small>
-					<strong>{price}</strong>
+					<strong>{formatter(price)}</strong>
 				</p>
 				<div className="product__rating">
 					{Array(rating)
