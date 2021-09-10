@@ -4,8 +4,10 @@ import "./Subtotal.css";
 import { useStateValue } from "./StateProvider";
 import { getBasketTotal } from "./reducer";
 import formatter from "./formatter";
+import { useHistory } from "react-router-dom";
 
 function Subtotal() {
+	const history = useHistory();
 	// eslint-disable-next-line
 	const [{ basket }, dispatch] = useStateValue();
 
@@ -35,7 +37,9 @@ function Subtotal() {
 			<small className="subtotal__gift">
 				<input type="checkbox" /> This order contains a gift.
 			</small>
-			<button>Proceed to Checkout</button>
+			<button onClick={(e) => history.push("/payment")}>
+				Proceed to Checkout
+			</button>
 		</div>
 	);
 }
