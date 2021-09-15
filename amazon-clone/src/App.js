@@ -8,6 +8,12 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { useStateValue } from "./StateProvider";
 import Payment from "./Payment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const promise = loadStripe(
+	"pk_test_51JZxQ9SI9BMxQpTJnIAVAMWZd4J5NfHztEBA7tbfsKKLpWQJ4lrCPe8hpv1V9MBvXbsZ2BbtQ10mufGXv8mZ8wke002gknclfo"
+);
 
 function App() {
 	// eslint-disable-next-line
@@ -46,7 +52,9 @@ function App() {
 					</Route>
 					<Route path="/payment">
 						<Header />
-						<Payment />
+						<Elements stripe={promise}>
+							<Payment />
+						</Elements>
 					</Route>
 					<Route path="/">
 						<Header />
