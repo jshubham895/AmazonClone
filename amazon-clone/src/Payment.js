@@ -13,7 +13,7 @@ function Payment() {
 	const stripe = useStripe();
 	const elements = useElements();
 
-	const [{ basket, user }] = useStateValue();
+	const [{ basket, user }, dispatch] = useStateValue();
 	const [succeeded, setSucceeded] = useState(false);
 	const [processing, setProcessing] = useState("");
 	const [error, setError] = useState(null);
@@ -23,14 +23,16 @@ function Payment() {
 	useEffect(() => {
 		const getClientSecret = async () => {
 			const response = await axios({
-				method: "POST",
-				url: `/payment/create?total=${getBasketTotal(basket) * 100}`
+				method: "post",
+				url: `/payments/create?total=${getBasketTotal(basket) * 100}`
 			});
 			setClientSecret(response.data.clientSecret);
 		};
 
 		getClientSecret();
 	}, [basket]);
+
+	console.log("THE SECRET IS ", clientSecret);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -47,6 +49,10 @@ function Payment() {
 				setSucceeded(true);
 				setError(null);
 				setProcessing(false);
+
+				dispatch({
+					type: "EMPTY_BASKET"
+				});
 
 				history.replace("/orders");
 			});
