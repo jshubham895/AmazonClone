@@ -7,6 +7,7 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { getBasketTotal } from "./reducer";
 import formatter from "./formatter";
 import axios from "./axios";
+import { db } from "./firebase";
 
 function Payment() {
 	const history = useHistory();
@@ -46,6 +47,17 @@ function Payment() {
 			})
 			.then(({ paymentIntent }) => {
 				//paymentIntent = payment information
+
+				db.collection("users")
+					.doc(user?.uid)
+					.collection("orders")
+					.doc(paymentIntent.id)
+					.set({
+						basket: basket,
+						amount: paymentIntent.amount,
+						created: paymentIntent.created
+					});
+
 				setSucceeded(true);
 				setError(null);
 				setProcessing(false);
@@ -104,7 +116,7 @@ function Payment() {
 						<form onSubmit={handleSubmit}>
 							<CardElement onChange={handleChange} />
 							<div className="payment__priceContainer">
-								<h3>Order Toral: {formatter(getBasketTotal(basket))}</h3>
+								<h3>Order Total: {formatter(getBasketTotal(basket))}</h3>
 								<button disabled={processing || disabled || succeeded}>
 									<span>{processing ? <p>Processing</p> : "Buy Now"}</span>
 								</button>
