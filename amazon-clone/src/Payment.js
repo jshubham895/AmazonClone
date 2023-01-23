@@ -27,13 +27,13 @@ function Payment() {
 				method: "post",
 				url: `/payments/create?total=${getBasketTotal(basket) * 100}`
 			});
-			setClientSecret(response.data.clientSecret);
+			const secret = response?.data?.clientSecret;
+			if (secret) console.log("payment initiated with secret key.");
+			setClientSecret(secret);
 		};
 
 		getClientSecret();
 	}, [basket]);
-
-	console.log("THE SECRET IS ", clientSecret);
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
